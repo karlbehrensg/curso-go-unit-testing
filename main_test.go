@@ -1,13 +1,17 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
 
 func TestAddSucess(t *testing.T) {
+	c := require.New(t)
+
 	result := Add(20, 2)
 
 	expect := 22
 
-	if result != expect {
-		t.Errorf("Expected %d, but got %d", expect, result)
-	}
+	c.Equal(expect, result)
 }
